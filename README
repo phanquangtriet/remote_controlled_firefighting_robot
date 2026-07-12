@@ -1,0 +1,44 @@
+1. Project overview:
+Mini Remote Controlled Firefighting Robot is a personal embedded systems project designed to demonstrate a remotely operated firefighting platform. The robot is controlled through a web-based interface, allowing users to navigate the vehicle and operate its firefighting mechanisms from a safe distance. 
+
+2. Features:
+-Four-directional movement (forward, backward, left, and right)
+-Integrated water pumping system using an onboard water tank
+-Integrated sand-blowing system using an onboard sand reservoir
+-Independently adjustable pump and blower directions for more effective firefighting
+-Real-time system status updates
+Browser-based web interface for remote control
+
+
+3. Hardware:
+Relay module: 2-channel Songle SRD-05VDC-SL-C 
+Motor driver: L298N Dual H-Bridge
+Buck converters: LM2596 adjustable
+Servo: TowerPro MG996R
+Controller: ESP32 DevKit V1
+Battery pack: 3S 11.1V 18650 Li-ion Battery Pack
+Blower: 75×75×30 mm 12V Brushless Centrifugal Blower (7530)
+Pump: 370 DC Mini Diaphragm Water Pump (12V)
+Chassis: 6 wheels aluminium DIY tank chassis
+
+
+4. Software
+The robot firmware is developed using Visual Studio Code with PlatformIO, targeting the ESP-IDF framework. The embedded application is written in C, while the user interface is implemented using HTML and served directly by the ESP32's built-in HTTP server.
+
+The robot operates in Wi-Fi Access Point (AP) mode, allowing users to connect directly to the ESP32 without requiring an external router. Once connected, users can access the web interface through a browser to remotely control the robot and monitor its status in real time.
+
+
+
+5. How to use
+Connect the 3S Li-ion battery.
+Turn on the main power switch.
+The ESP32 starts in Access Point mode.
+Connect your phone or laptop to the robot's Wi-Fi network.
+Default SSID: ESP32-Access-Point
+Password: 12345678
+Open a browser.
+Navigate to: http://192.168.4.1/
+
+
+*Note: This robot is intended as a prototype and educational project. It is suitable for demonstrating remote firefighting concepts but is not designed for use in real emergency situations.
+
