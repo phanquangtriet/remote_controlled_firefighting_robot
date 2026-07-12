@@ -1,6 +1,7 @@
 1. Project overview:
 Mini Remote Controlled Firefighting Robot is a personal embedded systems project designed to demonstrate a remotely operated firefighting platform. The robot is controlled through a web-based interface, allowing users to navigate the vehicle and operate its firefighting mechanisms from a safe distance. 
 
+
 2. Features:
 -Four-directional movement (forward, backward, left, and right)
 -Integrated water pumping system using an onboard water tank
