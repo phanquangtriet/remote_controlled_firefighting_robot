@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ESP32 Robot Controller</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+button{
+    width:90px;
+    height:60px;
+    margin:5px;
+    font-size:16px;
+    touch-action:none;
+}
+</style>
+
+<script>
+function send(path)
+{
+    fetch(path).catch(console.error);
+}
+
+function bindHoldButton(id, startPath, stopPath)
+{
+    const btn = document.getElementById(id);
+
+    btn.onpointerdown = () => send(startPath);
+
+    btn.onpointerup =
+    btn.onpointerleave =
+    btn.onpointercancel = () => send(stopPath);
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Robot Movement</h2>
+
+<button id="move_up">Up</button><br>
+
+<button id="move_left">Left</button>
+<button id="move_right">Right</button><br>
+
+<button id="move_down">Down</button>
+
+<hr>
+
+<h2>Pump</h2>
+
+<button onclick="send('/pump/on')">ON</button>
+<button onclick="send('/pump/off')">OFF</button>
+
+<br><br>
+
+<button id="pump_up">↑</button><br>
+
+<button id="pump_left">←</button>
+<button id="pump_right">→</button><br>
+
+<button id="pump_down">↓</button>
+
+<hr>
+
+<h2>Blower</h2>
+
+<button onclick="send('/blower/on')">ON</button>
+<button onclick="send('/blower/off')">OFF</button>
+
+<br><br>
+
+<button id="blower_up">↑</button><br>
+
+<button id="blower_left">←</button>
+<button id="blower_right">→</button><br>
+
+<button id="blower_down">↓</button>
+
+<script>
+
+// Robot movement
+bindHoldButton("move_up",    "/movement/up",    "/movement/stop");
+bindHoldButton("move_down",  "/movement/down",  "/movement/stop");
+bindHoldButton("move_left",  "/movement/left",  "/movement/stop");
+bindHoldButton("move_right", "/movement/right", "/movement/stop");
+
+// Pump servo
+bindHoldButton("pump_up",    "/pump/up",    "/pump/stop");
+bindHoldButton("pump_down",  "/pump/down",  "/pump/stop");
+bindHoldButton("pump_left",  "/pump/left",  "/pump/stop");
+bindHoldButton("pump_right", "/pump/right", "/pump/stop");
+
+// Blower servo
+bindHoldButton("blower_up",    "/blower/up",    "/blower/stop");
+bindHoldButton("blower_down",  "/blower/down",  "/blower/stop");
+bindHoldButton("blower_left",  "/blower/left",  "/blower/stop");
+bindHoldButton("blower_right", "/blower/right", "/blower/stop");
+
+</script>
+
+</body>
+</html>

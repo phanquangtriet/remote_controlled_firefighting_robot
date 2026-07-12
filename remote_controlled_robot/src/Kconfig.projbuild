@@ -1,0 +1,25 @@
+menu "wifi_ap_configuration"
+
+config ESP_WIFI_SSID
+    string "WiFi SSID"
+    default "ESP32-Access-Point"
+    help
+        Set the WiFi SSID for the ESP32 Access Point.
+config ESP_WIFI_PASSWORD
+    string "WiFi Password"
+    default "12345678"
+    help
+        Set the WiFi password for the ESP32 Access Point. Must be at least 8 characters long.
+config ESP_WIFI_CHANNEL
+    int "WiFi Channel"
+    default 1
+    help
+        Set the WiFi channel for the ESP32 Access Point. Valid values are 1-13.
+config ESP_MAX_STA_CONN
+    int "Max Connections"
+    default 8
+    help
+        Set the maximum number of simultaneous connections to the ESP32 Access Point. Valid values are 1-10.
+
+
+endmenu
